@@ -51,7 +51,6 @@ public class SmsServiceImpl implements SmsService {
             log.error("[验证码]: 网络IO错误");
             return false;
         }
-
         return true;
     }
 }
