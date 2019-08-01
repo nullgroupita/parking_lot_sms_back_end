@@ -18,7 +18,7 @@ public class SmsController {
     private SmsService service;
 
     @PostMapping("/register")
-    public Boolean sendRegisterMessage(@RequestBody RegisterForm form) {
+    public String sendRegisterMessage(@RequestBody RegisterForm form) {
         String[] params = {form.getPhone(), form.getPassword(), form.getJob()};
         return service.sendRegisterMessage(params);
     }

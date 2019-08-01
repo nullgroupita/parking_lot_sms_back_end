@@ -33,24 +33,22 @@ public class SmsServiceImpl implements SmsService {
     private String SIGN;
 
     @Override
-    public Boolean sendRegisterMessage(String[] params) {
+    public String sendRegisterMessage(String[] params) {
         SmsSingleSender sender = new SmsSingleSender(APP_ID, APP_KEY);
         try {
             SmsSingleSenderResult result = sender.sendWithParam("86", params[0], TEMPLATE_REGISTERED, params, SIGN, "", "");
             log.info(result.toString());
+            return result.toString();
         } catch (HTTPException e) {
             // HTTP响应码错误
             log.error("[验证码]: HTTP响应码错误");
-            return false;
         } catch (JSONException e) {
             // json解析错误
             log.error("[验证码]: json解析错误");
-            return false;
         } catch (IOException e) {
             // 网络IO错误
             log.error("[验证码]: 网络IO错误");
-            return false;
         }
-        return true;
+        return "error";
     }
 }

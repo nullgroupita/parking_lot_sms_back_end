@@ -7,6 +7,6 @@ package com.nullgroup.sms.service;
  */
 public interface SmsService {
 
-    Boolean sendRegisterMessage(String[] params);
+    String sendRegisterMessage(String[] params);
 
 }
