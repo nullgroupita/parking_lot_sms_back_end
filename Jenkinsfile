@@ -9,7 +9,7 @@ cp /mavenConfig/application.yml /root/.jenkins/workspace/parking_lot_sms_back_en
     }
     stage('Maven Build') {
       steps {
-        sh 'maven install'
+        sh 'mvn install'
       }
     }
   }
